@@ -1,3 +1,67 @@
+# JupyterLite deployment for "STEM Data Visualization and Du Boisian Methods"
+
+This repository is version of https://github.com/HigherEdData/Du-Bois-STEM that is designed to running entirely within
+the user's web browser with out needing and external server. It is powered by the [JupyterLite](https://jupyterlite.readthedocs.io/) project.
+
+## Technical notes for instructional designers and intructors
+
+There is a GitHub automation included in this repository that build and deploys this repo as a GitHub pages site
+at https://highereddata.github.io/dubois-jupyterlite/
+
+When developing this content, be sure to refresh your browser, clear your cache, and use the Help->Clear Browser Data to ensure
+you are looking at the most recent version of your content.
+
+If you need to add an additional Python or R library to the software evironment, add the library to the `environment.yml` file.
+
+### `content/` directory
+
+Place any data files, notebooks, or images that you want to make available to learners in the `content/` 
+directory of these repo.
+
+This `README.md` file is also automatically copied into the `content` directory when the site is generated.
+
+### Links to specific notebook files
+
+Browsing to https://highereddata.github.io/dubois-jupyterlite/ starts a JupyterLab like interface showing a
+file browser and multiple notebook noteboks.
+
+When sharing links to students, providing a direct URL may be preferred. To find this direct link, use this alternative 
+URL:
+
+https://highereddata.github.io/dubois-jupyterlite/tree
+
+and then open the notebook you want to share. Copy the URL in the address bar.
+
+Examples:
+- https://highereddata.github.io/dubois-jupyterlite/notebooks/?path=notebooks%2Fpython_popmap_dubois-updated.ipynb
+- https://highereddata.github.io/dubois-jupyterlite/notebooks/?path=notebooks%2Fpython_time_series_xy_dubois.ipynb
+
+The argument of `?path=` is relative to the `contents/` directory of this repository.
+
+### Same Origin Policy restrictions
+When loading data (such as with a command like `pd.read_csv(url)` you may encounter an error involving the
+the acronym CORS (Cross-Origin Resource Sharing). This is security feature of modern web-browsers.  
+
+One solution to this issue is to ensure any files (e.g. `.csv` or `.png` files) that you need to reference in these notebooks
+uses the URL 
+
+- https://highereddata.github.io/dubois-jupyterlite/files/<relative_path>
+
+where the `<relative_path>` is the path relative to the `contents/` directory.  
+
+Examples:
+- https://highereddata.github.io/dubois-jupyterlite/files/data/data.csv
+- https://highereddata.github.io/dubois-jupyterlite/files/readings-images/original-plate-02.jpg
+
+### JupyterLite vs JupyterLab
+
+JupyterLite attempts most of the functionality of JupyterLab instance
+that normally would require a server but running only in the local web browser. 
+
+While many libraries and modules have been successfully made to run with JupyterLite, there are some functionality which
+not (yet) work fully with JupyterLite. The Python and R libraries used in these Du Bois notebooks work as intended but
+there may be compatability issues if additional libraries are needed. The JupyterLite ecosystem is under active development.
+
 # STEM Data Visualization and Du Boisian Methods
 
 <div>
