@@ -43,15 +43,18 @@ When loading data (such as with a command like `pd.read_csv(url)` you may encoun
 the acronym CORS (Cross-Origin Resource Sharing). This is security feature of modern web-browsers.  
 
 One solution to this issue is to ensure any files (e.g. `.csv` or `.png` files) that you need to reference in these notebooks
-uses the URL 
+are also included in the this repository. Then instead of using a URL, you can reference the relative path.
 
-- https://highereddata.github.io/dubois-jupyterlite/files/<relative_path>
-
-where the `<relative_path>` is the path relative to the `contents/` directory.  
+If the notebooks are in the directory `contents/notebooks/`, then the relative path to various files could be
 
 Examples:
-- https://highereddata.github.io/dubois-jupyterlite/files/data/data.csv
-- https://highereddata.github.io/dubois-jupyterlite/files/readings-images/original-plate-02.jpg
+- `../data/data.csv`
+- `../readings-images/original-plate-02.jpg`
+- `../data/us_state_2020/us_state_2020_reduced.shp`
+
+Another solution is use URLs that have CORS configured to accept request from all origins (e.g. https://raw.githubusercontent.com)
+
+Reference: https://github.com/jupyterlite/jupyterlite/issues/729
 
 ### JupyterLite vs JupyterLab
 
