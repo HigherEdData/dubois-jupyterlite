@@ -3,7 +3,7 @@
 This repository is version of https://github.com/HigherEdData/Du-Bois-STEM that is designed to running entirely within
 the user's web browser with out needing and external server. It is powered by the [JupyterLite](https://jupyterlite.readthedocs.io/) project.
 
-## Technical notes for instructional designers and intructors
+## Technical notes for instructional designers and instructors
 
 There is a GitHub automation included in this repository that build and deploys this repo as a GitHub pages site
 at https://highereddata.github.io/dubois-jupyterlite/
