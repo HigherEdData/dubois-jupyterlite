@@ -32,6 +32,30 @@ jobs:
         run: |
           cp README.md content
           jupyter lite build --contents content --output-dir dist
+          python - <<'PY'
+          from pathlib import Path
+
+          tree_index = Path("dist/tree/index.html")
+          html = tree_index.read_text()
+          if "<body" not in html:
+              closing = "  </head>\n</html>\n"
+              replacement = """  </head>
+          <body class="jp-ThemedContainer" data-notebook="tree">
+            <div id="jupyterlite-loading-indicator" class="hidden">
+              <div class="jupyterlite-loading-indicator-spinner"></div>
+              <div class="jupyterlite-loading-indicator-text">Loading JupyterLite...</div>
+            </div>
+            <noscript>
+              <div style="text-align: center; padding: 20px;">
+                  JupyterLite requires JavaScript to be enabled in your browser.
+              </div>
+            </noscript>
+          </body>
+          </html>
+          """
+              html = html.replace(closing, replacement)
+              tree_index.write_text(html)
+          PY
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
