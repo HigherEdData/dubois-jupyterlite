@@ -11,3 +11,6 @@ dependencies:
   - xeus-r
   - r-ggplot2
   - r-base=4.5.3
+  - pip:
+    - jupyterlite-html-exporter
+
